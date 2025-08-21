@@ -1,6 +1,10 @@
 "use client";
 
+
 import Image from "next/image";
+
+
+
 
 const products = [
   {
@@ -62,6 +66,7 @@ const products = [
 ];
 
 export default function ProductHighlights() {
+   
   return (
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto text-center">
@@ -86,7 +91,7 @@ export default function ProductHighlights() {
               <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
               <p className="text-gray-600 mb-3">{product.description}</p>
               <p className="font-bold text-orange-500 mb-4">{product.price}</p>
-              <button className="btn btn-outline btn-primary">View Details</button>
+              <button  className="btn btn-outline btn-primary">View Details</button>
             </div>
           ))}
         </div>
