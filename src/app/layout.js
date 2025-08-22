@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Banner from "./components/Banner";
 import NextAuthSessionProvider from "@/providers/NextAuthSessionProvider";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "react-hot-toast";
 
 
 const geistSans = Geist({
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
        <Navbar></Navbar>
-        
+         <Toaster />
         <div className="min-h-screen">
           {children}
         </div>

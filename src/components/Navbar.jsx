@@ -1,11 +1,14 @@
 "use client";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 
 
 
 export default function Navbar() {
-    const navManue=()=>{
+  const { data: session, status } = useSession();
+  console.log(session)
+    const navManu=()=>{
         return <>
         <li>
           <Link href={"/"}>Home</Link>
@@ -25,39 +28,8 @@ export default function Navbar() {
         </>
     }
   return (
-    // <div className="navbar bg-base-100 shadow-lg px-8">
-    //   {/* Left side - Logo */}
-    //   <div className="flex-1">
-    //     <Link href="/" className="btn btn-ghost normal-case text-xl">
-    //       🍴 Foodie
-    //     </Link>
-    //   </div>
-
-    //   {/* Right side - Menu */}
-    //   <div className="flex">
-    //     <ul className="menu menu-horizontal px-1">
-    //       <li>
-    //         <Link href="/">Home</Link>
-    //       </li>
-    //       <li>
-    //         <Link href="/about">About</Link>
-    //       </li>
-    //       <li>
-    //         <Link href="/blogs">Blog</Link>
-    //       </li>
-    //       <li>
-    //         <Link href="/services">Services</Link>
-    //       </li>
-    //       <Link href="/register">
-    //           <li>Register</li>
-    //         </Link>
-    //     </ul>
-              
-             
-            
-    //   </div>
-    // </div>
-    <div className="navbar bg-base-100 shadow-sm">
+   
+    <div className="navbar bg-base-100 shadow-sm px-6">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,7 +38,7 @@ export default function Navbar() {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-{navManue()}
+{navManu()}
       </ul>
     </div>
     <Link href="/" className="btn btn-ghost normal-case text-xl">
@@ -75,13 +47,33 @@ export default function Navbar() {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      {navManue()}
+      {navManu()}
     </ul>
   </div>
   <div className="navbar-end">
-   <Link href="/addBlogs">
-   <button className="btn btn-outline">Appointment</button>
-   </Link>
+   <ul className="flex gap-2">
+     {status == "authenticated" ? (
+              <>
+                <li>
+                  <Image
+                    src={session?.user?.image}
+                    width={50}
+                    height={50}
+                    alt="user-logo"
+                  />
+                </li>
+                <li onClick={() => signOut()}>Log Out</li>
+              </>
+            ) : (
+     <>
+                <li>
+                  <Link href={"/register"} className="btn">Register</Link>
+                </li>
+                <li>
+                  <Link href={"/login"} className="btn">Login</Link>
+                </li>
+              </>
+            )}</ul>
   </div>
 </div>
   );
