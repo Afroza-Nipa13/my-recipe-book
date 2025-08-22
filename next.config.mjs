@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["i.postimg.cc"], // আপনার ছবি হোস্ট
+    domains: ["i.postimg.cc", "encrypted-tbn0.gstatic.com"], 
   },
 };
 

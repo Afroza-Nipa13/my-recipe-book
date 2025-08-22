@@ -1,5 +1,8 @@
 "use client";
 import Link from "next/link";
+import LoginButton from "./LoginButton";
+import UserInfo from "./userInfo";
+
 
 export default function Navbar() {
   return (
@@ -12,7 +15,7 @@ export default function Navbar() {
       </div>
 
       {/* Right side - Menu */}
-      <div className="flex-none">
+      <div className="flex">
         <ul className="menu menu-horizontal px-1">
           <li>
             <Link href="/">Home</Link>
@@ -26,13 +29,14 @@ export default function Navbar() {
           <li>
             <Link href="/services">Services</Link>
           </li>
-          <li>
-            
-          </li>
-        </ul>
-        <Link href="/login">
-              <button className="bg-neutral text-base-100 px-4 py-2 cursor-pointer rounded-2xl">Login</button>
+          <Link href="/register">
+              <li>Register</li>
             </Link>
+        </ul>
+              
+             <LoginButton></LoginButton>
+             <UserInfo></UserInfo>
+            
       </div>
     </div>
   );
