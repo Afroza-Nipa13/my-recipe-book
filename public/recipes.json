@@ -1,0 +1,58 @@
+[
+  {
+    "recipe_id": 1,
+    "name": "Chicken Curry",
+    "description": "Spicy and flavorful chicken curry recipe.",
+    "image": "https://i.postimg.cc/PxbdLNgX/chicken.jpg",
+    "price": "$12"
+  },
+  {
+    "recipe_id": 2,
+   "name": "Veggie Pasta",
+    "description": "Healthy and tasty pasta loaded with veggies.",
+    "image": "https://i.postimg.cc/h4xdrrBv/Chicken-Vegetable-Pasta-4.webp",
+    "price": "$10"
+  },
+  {
+    "recipe_id": 3,
+    "name": "Chocolate Cake",
+    "description": "Rich and moist chocolate cake with creamy frosting.",
+    "image": "https://i.postimg.cc/P5mLbrs7/cake.jpg",
+    "price": "$8"
+  },
+  {
+    "recipe_id": 4,
+    "name": "Grilled Salmon",
+    "description": "Tender salmon fillets grilled to perfection.",
+    "image": "https://i.postimg.cc/fRw3KQzT/grilled-Salmon.jpg",
+    "price": "$15"
+  },
+  {
+    "recipe_id": 5,
+    "name": "Caesar Salad",
+    "description": "Crisp romaine lettuce with creamy Caesar dressing.",
+    "image": "https://i.postimg.cc/KcDx5kRB/Caesar-Salad.jpg",
+    "price": "$9"
+  },
+  {
+    "recipe_id": 6,
+    "name": "Beef Steak",
+    "description": "Juicy and flavorful beef steak cooked to your liking.",
+    "image": "https://i.postimg.cc/x8JG9DJS/beef-steak.jpg",
+    "price": "$20"
+  },
+  {
+    "recipe_id": 7,
+    "name": "Fruit Smoothie",
+    "description": "Refreshing smoothie made with fresh fruits.",
+    "image": "https://i.postimg.cc/brg8FF8c/frut-juice.jpg",
+    "price": "$6"
+  },
+  {
+    "recipe_id": 8,
+    "name": "Pancakes",
+    "description": "Fluffy pancakes served with syrup and butter.",
+    "image": "https://i.postimg.cc/KcB5ghcs/pan-cake.jpg",
+    "price": "$7"
+  }
+]

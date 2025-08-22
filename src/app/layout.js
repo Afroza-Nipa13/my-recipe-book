@@ -3,10 +3,12 @@ import "./globals.css";
 
 
 import useSWR from 'swr'
-import Navbar from "./components/Navbar";
+
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
 import NextAuthSessionProvider from "@/providers/NextAuthSessionProvider";
+import Navbar from "@/components/Navbar";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +32,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar></Navbar>
+       <Navbar></Navbar>
         
         <div className="min-h-screen">
           {children}

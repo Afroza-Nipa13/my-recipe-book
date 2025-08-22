@@ -1,24 +1,40 @@
-import { MongoClient, ServerApiVersion } from "mongodb"
+import { MongoClient, ServerApiVersion } from "mongodb";
 
-export const collectionNames = {
-    TEST_USER: "test_user",
-    PRACTICE_DATA: "practice_data"
-}
+export const collectionNamesObj = {
+  recipeCollection: "recipeCollection",
+};
 
+/**
+ * Establishes a connection to the MongoDB database and returns a specific collection.
+ * @param {string} collectionName The name of the collection to return.
+ * @returns {Promise<import("mongodb").Collection>} A Promise that resolves to the specified collection.
+ */
+async function dbConnect(collectionName) {
+  const uri = process.env.MONGODB_URI;
 
-function dbConnect(collectionName) {
-    const uri = process.env.MONGODB_URI
+  if (!uri) {
+    throw new Error("Missing MONGODB_URI environment variable.");
+  }
 
-    // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-    const client = new MongoClient(uri, {
-        serverApi: {
-            version: ServerApiVersion.v1,
-            strict: true,
-            deprecationErrors: true,
-        }
-    });
+  const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    },
+  });
 
-    return client.db(process.env.DB_NAME).collection(collectionName)
+  try {
+    // Connect the client to the server (await is crucial here)
+    await client.connect();
+
+    // Select the database and return the specified collection
+    const db = client.db(process.env.DB_NAME);
+    return db.collection(collectionName);
+  } catch (error) {
+    console.error("Failed to connect to the database:", error);
+    throw error;
+  }
 }
 
 export default dbConnect;
