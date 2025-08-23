@@ -9,15 +9,15 @@ import { useRouter } from "next/navigation";
 // Placeholder images for the photo grid
 // In a real app, you would fetch these from a data source or use local assets.
 const images = [
-  "https://images.unsplash.com/photo-1546069901-d0b55694a919?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1498837167922-ddd27525d351?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1550547644-245c609c1181?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1481931098730-3304824b20a1?q=80&w=2895&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1512621776951-a8779623e21c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1490645935378-ab2220ba4772?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1505253716300-3571d2b8a74e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1482049016681-cb64e815e985?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  "https://i.postimg.cc/MGW20fvR/about1.jpg",
+  "https://i.postimg.cc/SKsXTsP2/about2.webp",
+  "https://i.postimg.cc/mrtD3nc7/about3.jpg",
+  "https://i.postimg.cc/RV4Zph6S/about4.jpg",
+  "https://i.postimg.cc/VNrf0bTR/about5.jpg",
+  "https://i.postimg.cc/hthgNdSB/about6.jpg",
+  "https://i.postimg.cc/dtpStk2v/about7.jpg",
+  "https://i.postimg.cc/Kcs0JksL/about8.jpg",
+  "https://i.postimg.cc/Nf3pwhtj/about9.jpg"
 ];
 
 export default function aboutPage() {
