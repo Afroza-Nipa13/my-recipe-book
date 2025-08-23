@@ -16,12 +16,16 @@ export default function LoginForm() {
     const email = form.email.value;
     const password = form.password.value;
     toast("Submitting ....");
+
+    // current page path
+    const callbackUrl = router.query?.callbackUrl || "/";
     try {
       const response = await signIn("credentials", {
         email,
         password,
-        callbackUrl: "/",
-        redirect: false,
+        callbackUrl,
+        redirect: true,
+      
       });
       if (response.ok) {
         toast.success("Logged In successfully");

@@ -1,49 +1,43 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import Swal from "sweetalert2"; // Import SweetAlert2
+import Swal from "sweetalert2";
 import { FaFacebookF, FaLinkedinIn, FaGoogle } from "react-icons/fa";
 import { registerUser } from "@/app/actions/auth/registerUser";
 import SocialLogin from "@/app/login/components/SocialLogin";
+import { signIn } from "next-auth/react"; // 👈 এটা যোগ করো
 
 export default function RegisterForm() {
-  const [loading, setLoading] = useState(false); // State to handle loading state
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true while the request is in progress
+    setLoading(true);
 
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    // Call the server action and get the result
     const result = await registerUser({ name, email, password });
-    
-    setLoading(false); // Reset loading state
+    setLoading(false);
 
-    if (result && result.error) {
-      // If there's an error, show a SweetAlert with the error message
+    if (!result) {
       Swal.fire({
         icon: "error",
         title: "Registration Failed",
-        text: result.error,
+        text: "User already exists or something went wrong.",
       });
-    } else {
-      // If registration is successful, show a success SweetAlert
-      Swal.fire({
-        icon: "success",
-        title: "Registration Successful!",
-        text: "You have been registered successfully. Please log in.",
-      }).then(() => {
-        // You can optionally redirect the user after they click "OK"
-        // window.location.href = '/login'; 
-      });
-
-      // Clear the form fields after successful registration
-      form.reset();
+      return;
     }
+
+    //Registration successful, now login automatically
+    await signIn("credentials", {
+      redirect: true,          
+      email,
+      password,
+      callbackUrl: "/",       
+    });
   };
 
   return (
@@ -92,8 +86,7 @@ export default function RegisterForm() {
         {loading ? "Registering..." : "Sign Up"}
       </button>
       <p className="text-center">Or Sign In with</p>
-      {/* SocialLogin */}
-      <SocialLogin></SocialLogin>
+      <SocialLogin />
       <p className="text-center">
         Don't Have an account?{" "}
         <Link href="/login" className="text-orange-500 font-bold">
