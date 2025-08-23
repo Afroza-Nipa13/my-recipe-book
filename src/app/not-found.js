@@ -10,6 +10,7 @@ export default function NotFound() {
           alt="404 Page Not Found"
           width={400}
           height={400}
+          fill
           className="rounded-lg shadow-md mb-8"
         />
 
